@@ -121,6 +121,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bullet.cpp" />
     <ClCompile Include="STL.cpp" />
     <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="main.cpp" />

@@ -17,29 +17,6 @@ gameObject::gameObject()
 
 }
 
-projectile::projectile() {
-
-	m_image = SDL_LoadBMP("bullet.bmp");
-
-	m_position.x = 0;
-	m_position.y = 0;
-
-
-	m_position.w = 10;
-	m_position.h = 10;
-
-	m_x = 0.0;
-	m_y = 0.0;
-
-}
-
-
-
-void projectile::update(double delta_time) {
-	
-	m_x += (5.0 * delta_time);
-	m_position.x = m_x;
-}
 
 
 
@@ -84,11 +61,28 @@ void gameObject::update(double delta_time)
 			break;
 		}
 
+		if (m_x > SCREEN_WIDTH - m_position.w) {
+			m_x = SCREEN_WIDTH - m_position.w;
+		}
 
+		if (m_x < 0.0) {
+			m_x = 0.0;
+
+		}
+
+		if (m_y > SCREEN_HEIGHT - m_position.h) {
+			m_y = SCREEN_HEIGHT - m_position.h;
+		}
+		if (m_y < 0) {
+			m_y = 0.0;
+
+		}
 
 
 	m_position.x = m_x;
 	m_position.y = m_y;
+
+
 
 	
 

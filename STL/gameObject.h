@@ -1,6 +1,9 @@
 #pragma once
 #include "SDL.h"
 
+#define SCREEN_WIDTH 640
+#define SCREEN_HEIGHT 480
+
 enum class direction
 {
 	NONE,
