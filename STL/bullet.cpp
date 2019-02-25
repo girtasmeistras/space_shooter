@@ -1,24 +1,44 @@
-#include "gameObject.h"
+#include "bullet.h"
+#include "helpers.h"
 projectile::projectile() {
 
-	m_image = SDL_LoadBMP("bullet.bmp");
+	b_txt = nullptr;
 
-	m_position.x = 0;
-	m_position.y = 0;
+	b_pos.x = 0;
+	b_pos.y = 0;
 
 
-	m_position.w = 10;
-	m_position.h = 10;
+	b_pos.w = 10;
+	b_pos.h = 10;
 
-	m_x = 0.0;
-	m_y = 0.0;
 
 }
 
 
 
-void projectile::update(double delta_time) {
+void projectile::update() {
 
-	m_x += (5.0 * delta_time);
-	m_position.x = m_x;
+	b_pos.y -= 15;
+
+
+}
+
+void projectile::get_texture(SDL_Renderer* window_renderer) {
+
+	b_txt = load_texture("bullet.bmp", window_renderer);
+
+}
+
+void projectile::draw(SDL_Renderer* window_renderer) {
+
+	SDL_RenderCopy(window_renderer, b_txt, nullptr, &b_pos);
+
+}
+
+
+void projectile::get_pos(int x, int y) {
+
+	b_pos.x = x;
+	b_pos.y = y;
+
 }

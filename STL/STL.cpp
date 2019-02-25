@@ -3,45 +3,37 @@
 
 
 
+
+
 application::application()
 {
 	//Initialize SDL
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
-	{
-		std::cout << "SDL could not initialize! SDL_Error:" << SDL_GetError() << "\n";
-		return;
-	}
-	else
-	{
+	assert(SDL_Init(SDL_INIT_VIDEO) > -1, SDL_GetError());
+	
+	
 		window = SDL_CreateWindow("SDL2 Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+		assert(window != 0, SDL_GetError());
 
-		if (!window)
-		{
-			std::cout << "Failed to create window\n";
-			std::cout << "SDL2 Error: " << SDL_GetError() << "\n";
-			return;
-		}
-
-		windowSurface = SDL_GetWindowSurface(window);
-
-
-
-		if (!windowSurface)
-		{
-			std::cout << "Failed to get window's surface\n";
-			std::cout << "SDL2 Error: " << SDL_GetError() << "\n";
-			return;
-		}
-	}
+		window_renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+		assert(window_renderer != 0, SDL_GetError());
+		
+	
 
 	
 
-	background = load_bmp("background.bmp");
+	background_texture = load_texture("background.bmp", window_renderer);
+	window_rect = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
+
+	player.get_texture(window_renderer);
+	player.bullet.get_texture(window_renderer);
+
+
+	
 }
 
 application::~application()
 {
-	SDL_FreeSurface(windowSurface);
+	SDL_DestroyTexture(background_texture);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }
@@ -69,50 +61,30 @@ void application::loop()
 			
 		}
 
-		update(1.0 / 60.0);
+		update();
 		draw();
 		
 	}
 }
 
-void application::update(double delta_time)
+void application::update()
 {
-	player.update(delta_time);
+	player.update();
 	
 
 }
 
 void application::draw()
 {
-	//SDL_FillRect(windowSurface, nullptr, SDL_MapRGB(windowSurface->format, 0, 0, 0));
+	SDL_RenderClear(window_renderer);
 
-	SDL_BlitSurface(background, nullptr, windowSurface, nullptr);
+	SDL_RenderCopy(window_renderer, background_texture, &window_rect, nullptr);
 
-	player.draw(windowSurface);
+	player.draw(window_renderer, &window_rect);
+
+	SDL_RenderPresent(window_renderer);
 
 
-	SDL_UpdateWindowSurface(window);
+	SDL_Delay(1000 / SCREEN_FPS);
 }
 
-
-
-SDL_Surface *load_bmp(char const *path)
-{
-	SDL_Surface *optimized_version = nullptr;
-	SDL_Surface *image_surface = SDL_LoadBMP(path);
-
-	if (!image_surface)
-		return 0;
-
-	optimized_version = SDL_ConvertSurface(image_surface, image_surface->format, 0);
-
-	if (!optimized_version)
-	{
-		SDL_FreeSurface(image_surface);
-		return 0;
-	}
-
-	SDL_FreeSurface(image_surface);
-
-	return optimized_version;
-}

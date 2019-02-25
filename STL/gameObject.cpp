@@ -2,154 +2,162 @@
 #include <iostream>
 gameObject::gameObject()
 {
+	p_txt = nullptr;
+	bullet_is_present = false;
 
-	player_surface = SDL_LoadBMP("spaceship.bmp");
-	
-
-	m_position.x = 0;
-	m_position.y = 0;
-
-	m_position.w = 23;
-	m_position.h = 22;
-
-	m_x = 0.0;
-	m_y = 0.0;
-
+	p_pos.x = 0;
+	p_pos.y = 0;
+	p_pos.w = 23;
+	p_pos.h = 22;
 }
 
 
 
 
-void gameObject::update(double delta_time)
+void gameObject::update()
 {
 	
-		switch (m_direction)
+		switch (pp_dir)
 		{
-		case direction::NONE:
-			m_x += 0.0;
-			m_y += 0.0;
-			break;
+		
 		case direction::UP:
-			m_y = m_y - (20.0 * delta_time);
+			
+			p_pos.y = p_pos.y - 10;
 			break;
 		case direction::DOWN:
-			m_y = m_y + (20.0 * delta_time);
+			
+			p_pos.y = p_pos.y + 10;
 			break;
 		case direction::LEFT:
-			m_x = m_x - (20.0 * delta_time);
+			
+			p_pos.x = p_pos.x - 10;
 			break;
 		case direction::RIGHT:
-			m_x = m_x + (20.0 * delta_time);
+			
+			p_pos.x = p_pos.x + 10;
+
 			break;
 
 		}
 	
 
 
-		switch (s_direction)
+		switch (sp_dir)
 		{
 
-		case direction::NONE:
-			m_x += 0.0;
-			m_y += 0.0;
-			break;
 		case direction::UP:
-			m_y = m_y - (20.0 * delta_time);
+			
+			p_pos.y = p_pos.y - 10;
 			break;
 		case direction::DOWN:
-			m_y = m_y + (20.0 * delta_time);
+		
+			p_pos.y = p_pos.y + 10;
 			break;
 		}
 
-		if (m_x > SCREEN_WIDTH - m_position.w) {
-			m_x = SCREEN_WIDTH - m_position.w;
+		if (p_pos.x > SCREEN_WIDTH - p_pos.w) {
+			p_pos.x = SCREEN_WIDTH - p_pos.w;
 		}
 
-		if (m_x < 0.0) {
-			m_x = 0.0;
-
-		}
-
-		if (m_y > SCREEN_HEIGHT - m_position.h) {
-			m_y = SCREEN_HEIGHT - m_position.h;
-		}
-		if (m_y < 0) {
-			m_y = 0.0;
+		if (p_pos.x < 0) {
+			p_pos.x = 0;
 
 		}
 
+		if (p_pos.y > SCREEN_HEIGHT - p_pos.h) {
+			p_pos.y = SCREEN_HEIGHT - p_pos.h;
+		}
+		if (p_pos.y < 0) {
+			p_pos.y = 0;
 
-	m_position.x = m_x;
-	m_position.y = m_y;
+		}
 
+
+		if (bullet_is_present) {
+
+			bullet.update();
+		}
 
 
 	
 
 }
 
-void gameObject::draw(SDL_Surface* window_surface)
+void gameObject::draw(SDL_Renderer* window_renderer, SDL_Rect* dest_rect)
 {
-
-	SDL_BlitSurface(player_surface, nullptr, window_surface, &m_position);
 	
+	SDL_RenderCopy(window_renderer, p_txt, dest_rect, &p_pos);
+
+	if (bullet_is_present) {
+
+		bullet.draw(window_renderer);
+
+		if (bullet.b_pos.y < 0) {
+
+			bullet_is_present = false;
+
+		}
+
+	}
+
 	
 }
 
 void gameObject::handleEvents(SDL_Event const &event) {
 
-	const Uint8 *keyboard_state_array = SDL_GetKeyboardState(NULL);
+	const Uint8* state = SDL_GetKeyboardState(NULL);
 
 	if (event.type == SDL_KEYDOWN) {
 	
 
-		if (keyboard_state_array[SDL_SCANCODE_UP])
+		if (state[SDL_SCANCODE_UP])
 		{
-			m_direction = direction::UP;
+			pp_dir = direction::UP;
 			
 		}
-		if (keyboard_state_array[SDL_SCANCODE_DOWN])
+		if (state[SDL_SCANCODE_DOWN])
 		{
-			m_direction = direction::DOWN;
+			pp_dir = direction::DOWN;
 			
 		}
 
-		if (keyboard_state_array[SDL_SCANCODE_RIGHT])
+		if (state[SDL_SCANCODE_RIGHT])
 		{
-			if (m_direction == direction::UP) {
-				s_direction = direction::UP;
+			if (pp_dir == direction::UP) {
+				sp_dir = direction::UP;
 				
 			}
-			if (m_direction == direction::DOWN) {
+			if (pp_dir == direction::DOWN) {
 
-				s_direction = direction::DOWN;
+				sp_dir = direction::DOWN;
 				
 			}
 			
-				m_direction = direction::RIGHT;
+			pp_dir = direction::RIGHT;
 				
 			
 		}
-		if (keyboard_state_array[SDL_SCANCODE_LEFT])
+		if (state[SDL_SCANCODE_LEFT])
 		{
-			if (m_direction == direction::UP) {
+			if (pp_dir == direction::UP) {
 
-				s_direction = direction::UP;
+				sp_dir = direction::UP;
 			}
 
-			if(m_direction == direction::DOWN) {
+			if(pp_dir == direction::DOWN) {
 				
-				s_direction = direction::DOWN;
+				sp_dir = direction::DOWN;
 
 			}
 			
-				m_direction = direction::LEFT;
+			pp_dir = direction::LEFT;
 				
 		}
 
-		if (keyboard_state_array[SDL_SCANCODE_SPACE]) {
+		if (state[SDL_SCANCODE_SPACE]) {
 
-			//shoot a projectile
+			bullet_is_present = true;
+			bullet.get_pos(p_pos.x + bullet.b_pos.w, p_pos.y);
 
 		}
 		
@@ -159,25 +167,25 @@ void gameObject::handleEvents(SDL_Event const &event) {
 
 	if (event.type == SDL_KEYUP) {
 
-		if (s_direction == direction::NONE) {
+		if (sp_dir == direction::NONE) {
 
-			m_direction = direction::NONE;
+			pp_dir = direction::NONE;
 		}
 		else {
 
-			if (s_direction == direction::UP && keyboard_state_array[SDL_SCANCODE_UP]) {
+			if (sp_dir == direction::UP &&  state[SDL_SCANCODE_UP]) {
 
-					m_direction = direction::UP;
+				pp_dir = direction::UP;
 				
 			}
-			if (s_direction == direction::DOWN && keyboard_state_array[SDL_SCANCODE_DOWN]) {
+			if (sp_dir == direction::DOWN &&  state[SDL_SCANCODE_DOWN]) {
 					
-					m_direction = direction::DOWN;
+				pp_dir = direction::DOWN;
 
 			}
 
 
-			s_direction = direction::NONE;
+			sp_dir = direction::NONE;
 		}
 		
 		
@@ -185,5 +193,11 @@ void gameObject::handleEvents(SDL_Event const &event) {
 
 	}
 
+
+}
+
+void gameObject::get_texture(SDL_Renderer* window_renderer) {
+
+	p_txt = load_texture("spaceship.bmp", window_renderer);
 
 }

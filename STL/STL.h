@@ -3,12 +3,12 @@
 #include "SDL.h"
 #include "gameObject.h"
 #include <string>
-
+#include "helpers.h"
 
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
+#define SCREEN_FPS 60
 
-SDL_Surface* load_bmp(char const *path);
 
 class application {
 
@@ -19,15 +19,16 @@ public:
 
 	void draw();
 	void loop();
-	void update(double delta_time);
+	void update();
 
 private:
 
 	gameObject player;
 
 	SDL_Window*  window;
-	SDL_Surface* windowSurface;
-	SDL_Surface* background;
+	SDL_Renderer *window_renderer;
+	SDL_Texture* background_texture;
+	SDL_Rect window_rect;
 	SDL_Event   windowEvent;
 
 	
