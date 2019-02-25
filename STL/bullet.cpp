@@ -8,13 +8,16 @@ projectile::projectile() {
 	b_pos.y = 0;
 
 
-	b_pos.w = 10;
-	b_pos.h = 10;
+	b_pos.w = 7;
+	b_pos.h = 7;
 
 
 }
 
+projectile::~projectile() {
 
+	SDL_DestroyTexture(b_txt);
+}
 
 void projectile::update() {
 

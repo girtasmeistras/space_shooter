@@ -21,13 +21,14 @@ class gameObject {
 
 public:
 	gameObject();
-	~gameObject() = default;
+	~gameObject();
 	void get_texture(SDL_Renderer *window_renderer);
 	void update();
 	void draw(SDL_Renderer *window_renderer, SDL_Rect* dest_rect);
 	void handleEvents(SDL_Event const &event);
 	projectile bullet;
 	bool bullet_is_present;
+	bool space_was_pressed;
 
 private:
 

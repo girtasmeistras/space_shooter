@@ -26,7 +26,7 @@ private:
 	gameObject player;
 
 	SDL_Window*  window;
-	SDL_Renderer *window_renderer;
+	SDL_Renderer* window_renderer;
 	SDL_Texture* background_texture;
 	SDL_Rect window_rect;
 	SDL_Event   windowEvent;

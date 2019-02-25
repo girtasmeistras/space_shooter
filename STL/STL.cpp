@@ -11,14 +11,12 @@ application::application()
 	assert(SDL_Init(SDL_INIT_VIDEO) > -1, SDL_GetError());
 	
 	
-		window = SDL_CreateWindow("SDL2 Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
-		assert(window != 0, SDL_GetError());
+	window = SDL_CreateWindow("SDL2 Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+	assert(window != 0, SDL_GetError());
 
-		window_renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-		assert(window_renderer != 0, SDL_GetError());
+	window_renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	assert(window_renderer != 0, SDL_GetError());
 		
-	
-
 	
 
 	background_texture = load_texture("background.bmp", window_renderer);
@@ -34,6 +32,7 @@ application::application()
 application::~application()
 {
 	SDL_DestroyTexture(background_texture);
+	SDL_DestroyRenderer(window_renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 }

@@ -4,6 +4,7 @@ gameObject::gameObject()
 {
 	p_txt = nullptr;
 	bullet_is_present = false;
+	space_was_pressed = false;
 
 	p_pos.x = 0;
 	p_pos.y = 0;
@@ -11,7 +12,12 @@ gameObject::gameObject()
 	p_pos.h = 22;
 }
 
+gameObject::~gameObject() {
 
+	SDL_DestroyTexture(p_txt);
+
+
+}
 
 
 void gameObject::update()
@@ -156,8 +162,7 @@ void gameObject::handleEvents(SDL_Event const &event) {
 
 		if (state[SDL_SCANCODE_SPACE]) {
 
-			bullet_is_present = true;
-			bullet.get_pos(p_pos.x + bullet.b_pos.w, p_pos.y);
+			space_was_pressed = true;
 
 		}
 		
@@ -167,7 +172,7 @@ void gameObject::handleEvents(SDL_Event const &event) {
 
 	if (event.type == SDL_KEYUP) {
 
-		if (sp_dir == direction::NONE) {
+		if (sp_dir == direction::NONE && (!state[SDL_SCANCODE_UP] && !state[SDL_SCANCODE_DOWN] && !state[SDL_SCANCODE_LEFT] && !state[SDL_SCANCODE_RIGHT])) {
 
 			pp_dir = direction::NONE;
 		}
@@ -188,6 +193,12 @@ void gameObject::handleEvents(SDL_Event const &event) {
 			sp_dir = direction::NONE;
 		}
 		
+		if (space_was_pressed && !state[SDL_SCANCODE_SPACE]) {
+
+			bullet_is_present = true;
+			bullet.get_pos(p_pos.x + bullet.b_pos.w , p_pos.y);
+			space_was_pressed = false;
+		}
 		
 		
 

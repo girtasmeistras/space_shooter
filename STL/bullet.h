@@ -5,7 +5,7 @@ class projectile {
 
 public:
 	projectile();
-	~projectile() = default;
+	~projectile();
 
 	void get_pos(int x, int y);
 	void update();
