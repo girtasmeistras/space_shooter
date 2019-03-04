@@ -1,10 +1,7 @@
-#include "gameObject.h"
+#include "player.h"
 #include <iostream>
-gameObject::gameObject()
+player::player()
 {
-	p_txt = nullptr;
-	bullet_is_present = false;
-	space_was_pressed = false;
 
 	p_pos.x = 0;
 	p_pos.y = 0;
@@ -12,15 +9,24 @@ gameObject::gameObject()
 	p_pos.h = 22;
 }
 
-gameObject::~gameObject() {
+player::~player() {
 
-	SDL_DestroyTexture(p_txt);
+	
 
 
 }
 
 
-void gameObject::update()
+void player::draw(SDL_Renderer* window_renderer, SDL_Rect* d_rect)
+{
+
+	p_txt.draw(window_renderer, d_rect, &p_pos);
+
+
+
+}
+
+void player::update()
 {
 	
 		switch (pp_dir)
@@ -79,37 +85,16 @@ void gameObject::update()
 		}
 
 
-		if (bullet_is_present) {
-
-			bullet.update();
-		}
+		
 
 
 	
 
 }
 
-void gameObject::draw(SDL_Renderer* window_renderer, SDL_Rect* dest_rect)
-{
-	
-	SDL_RenderCopy(window_renderer, p_txt, dest_rect, &p_pos);
 
-	if (bullet_is_present) {
 
-		bullet.draw(window_renderer);
-
-		if (bullet.b_pos.y < 0) {
-
-			bullet_is_present = false;
-
-		}
-
-	}
-
-	
-}
-
-void gameObject::handleEvents(SDL_Event const &event) {
+void player::handleEvents(SDL_Event const &event) {
 
 	const Uint8* state = SDL_GetKeyboardState(NULL);
 
@@ -162,7 +147,7 @@ void gameObject::handleEvents(SDL_Event const &event) {
 
 		if (state[SDL_SCANCODE_SPACE]) {
 
-			space_was_pressed = true;
+			//instantiate bullet, shoot
 
 		}
 		
@@ -193,22 +178,14 @@ void gameObject::handleEvents(SDL_Event const &event) {
 			sp_dir = direction::NONE;
 		}
 		
-		if (space_was_pressed && !state[SDL_SCANCODE_SPACE]) {
-
-			bullet_is_present = true;
-			bullet.get_pos(p_pos.x + bullet.b_pos.w , p_pos.y);
-			space_was_pressed = false;
-		}
-		
-		
 
 	}
 
 
 }
 
-void gameObject::get_texture(SDL_Renderer* window_renderer) {
+void player::get_texture(SDL_Renderer* window_renderer) {
 
-	p_txt = load_texture("spaceship.bmp", window_renderer);
+	p_txt.load_texture("spaceship.bmp", window_renderer);
 
 }

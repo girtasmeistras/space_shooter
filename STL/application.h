@@ -1,7 +1,7 @@
 #pragma once
 
 #include "SDL.h"
-#include "gameObject.h"
+#include "player.h"
 #include <string>
 #include "helpers.h"
 
@@ -23,15 +23,13 @@ public:
 
 private:
 
-	gameObject player;
+	player player;
 
 	SDL_Window*  window;
 	SDL_Renderer* window_renderer;
-	SDL_Texture* background_texture;
 	SDL_Rect window_rect;
 	SDL_Event   windowEvent;
-
-	
+	img background_texture;
 
 
 };

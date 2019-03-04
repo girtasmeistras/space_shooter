@@ -1,35 +1,39 @@
-#include "helpers.h"
+﻿#include "helpers.h"
 #include <iostream>
 
-SDL_Surface *load_bmp(const char* path)
-{
-	SDL_Surface *optimized_version = nullptr;
-	SDL_Surface *image_surface = SDL_LoadBMP(path);
+img::img() :
+	texture(nullptr) {}
 
-	assert(image_surface != 0, SDL_GetError());
-
-	optimized_version = SDL_ConvertSurface(image_surface, image_surface->format, 0);
-
-	assert(optimized_version != 0, SDL_GetError());
-
-	SDL_FreeSurface(image_surface);
-
-	return optimized_version;
+img :: ~img() {
+	SDL_DestroyTexture(texture);
 }
 
+void img::draw(SDL_Renderer* w_ren, SDL_Rect* s_rect, SDL_Rect* d_rect) {
 
-SDL_Texture* load_texture(const char* path, SDL_Renderer* window_renderer) {
+	SDL_RenderCopy(w_ren, texture, s_rect, d_rect);
+}
+
+void img::load_texture(const char* path, SDL_Renderer* w_ren) {
 
 	SDL_Surface* temp = load_bmp(path);
 	assert(temp != 0, SDL_GetError());
 
-	SDL_Texture* new_texture = SDL_CreateTextureFromSurface(window_renderer, temp);
-	assert(new_texture != 0, SDL_GetError());
+
+	texture = SDL_CreateTextureFromSurface(w_ren, temp);
+	assert(texture != 0, SDL_GetError());
+
 
 	SDL_FreeSurface(temp);
-	return new_texture;
 
 }
+
+SDL_Surface *load_bmp(const char* path)
+{
+	SDL_Surface *image_surface = SDL_LoadBMP(path);
+	assert(image_surface != 0, SDL_GetError());
+	return image_surface;
+}
+
 
 void assert_func(char const *message, int line, char const *function, char const *file)
 {

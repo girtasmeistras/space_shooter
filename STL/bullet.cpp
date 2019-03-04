@@ -26,17 +26,7 @@ void projectile::update() {
 
 }
 
-void projectile::get_texture(SDL_Renderer* window_renderer) {
 
-	b_txt = load_texture("bullet.bmp", window_renderer);
-
-}
-
-void projectile::draw(SDL_Renderer* window_renderer) {
-
-	SDL_RenderCopy(window_renderer, b_txt, nullptr, &b_pos);
-
-}
 
 
 void projectile::get_pos(int x, int y) {

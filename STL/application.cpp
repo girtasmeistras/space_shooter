@@ -1,8 +1,5 @@
-#include "STL.h"
+#include "application.h"
 #include <iostream>
-
-
-
 
 
 application::application()
@@ -19,19 +16,16 @@ application::application()
 		
 	
 
-	background_texture = load_texture("background.bmp", window_renderer);
+	background_texture.load_texture("background.bmp", window_renderer);
 	window_rect = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 
 	player.get_texture(window_renderer);
-	player.bullet.get_texture(window_renderer);
-
-
+	
 	
 }
 
 application::~application()
 {
-	SDL_DestroyTexture(background_texture);
 	SDL_DestroyRenderer(window_renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -77,9 +71,10 @@ void application::draw()
 {
 	SDL_RenderClear(window_renderer);
 
-	SDL_RenderCopy(window_renderer, background_texture, &window_rect, nullptr);
+	background_texture.draw(window_renderer, &window_rect, nullptr);
 
-	player.draw(window_renderer, &window_rect);
+	player.draw(window_renderer, &window_rect);//fix this
+
 
 	SDL_RenderPresent(window_renderer);
 
