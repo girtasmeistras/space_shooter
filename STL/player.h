@@ -24,9 +24,9 @@ public:
 	player();
 	~player();
 	void update();
-	void draw(SDL_Renderer* window_renderer, SDL_Rect* d_rect, img* bullet_texture);
+	void draw(SDL_Renderer* w_ren, SDL_Rect* d_rect, img* b_txt);
 	void handleEvents(SDL_Event const &event);
-	void get_texture(SDL_Renderer* window_renderer);
+	void get_texture(SDL_Renderer* w_ren);
 
 private:
 	img p_txt;//player texture

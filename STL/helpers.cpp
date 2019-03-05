@@ -1,6 +1,7 @@
 ﻿#include "helpers.h"
 #include <iostream>
 #include <string>
+
 img::img() :
 	texture(nullptr) {}
 

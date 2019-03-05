@@ -18,9 +18,9 @@ Application::Application()
 
 	background_texture.load_texture("background.bmp", window_renderer);
 	bullet_texture.load_texture("bullet.bmp", window_renderer);
+	player.get_texture(window_renderer);
 	window_rect = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 
-	player.get_texture(window_renderer);
 	
 	
 }

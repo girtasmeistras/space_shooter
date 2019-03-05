@@ -169,9 +169,9 @@ void player::handleEvents(SDL_Event const &event) {
 
 		if (state[SDL_SCANCODE_SPACE] && event.key.repeat == 0) {
 
-			Bullet* toShoot = new Bullet();
-			toShoot->get_pos(p_pos.x, p_pos.y);
-			bullets.push_back(toShoot);
+			Bullet* to_shoot = new Bullet();
+			to_shoot->get_pos(p_pos.x, p_pos.y);
+			bullets.push_back(to_shoot);
 			
 
 		}
@@ -182,10 +182,12 @@ void player::handleEvents(SDL_Event const &event) {
 
 	if (event.type == SDL_KEYUP) {
 
-		if (sp_dir == direction::NONE && (!state[SDL_SCANCODE_UP] && !state[SDL_SCANCODE_DOWN] && !state[SDL_SCANCODE_LEFT] && !state[SDL_SCANCODE_RIGHT])) {
+		if ((!state[SDL_SCANCODE_UP] && !state[SDL_SCANCODE_DOWN] && !state[SDL_SCANCODE_LEFT] && !state[SDL_SCANCODE_RIGHT])) {
 
 			pp_dir = direction::NONE;
+			
 		}
+		
 		else {
 
 			if (sp_dir == direction::UP &&  state[SDL_SCANCODE_UP]) {
@@ -209,8 +211,8 @@ void player::handleEvents(SDL_Event const &event) {
 
 }
 
-void player::get_texture(SDL_Renderer* window_renderer) {
+void player::get_texture(SDL_Renderer* w_ren) {
 
-	p_txt.load_texture("spaceship.bmp", window_renderer);
+	p_txt.load_texture("spaceship.bmp", w_ren);
 
 }
