@@ -17,12 +17,17 @@ player::~player() {
 }
 
 
-void player::draw(SDL_Renderer* window_renderer, SDL_Rect* d_rect)
+void player::draw(SDL_Renderer* w_ren, SDL_Rect* d_rect, img* b_txt)
 {
 
-	p_txt.draw(window_renderer, d_rect, &p_pos);
+	p_txt.draw(w_ren, d_rect, &p_pos);
 
+	for (auto it = bullets.begin(); it != bullets.end(); ++it)
+	{
+		b_txt->draw(w_ren, d_rect, &(*it)->b_pos);
+		
 
+	}
 
 }
 
@@ -85,6 +90,23 @@ void player::update()
 		}
 
 
+		for (auto it = bullets.begin(); it != bullets.end();)
+		{
+			(*it)->update();
+
+			if ((*it)->b_pos.y < 0)
+			{
+				delete (*it);
+				bullets.erase(it++); 
+				
+			}
+
+			else {
+				++it;
+			}
+			
+
+		}
 		
 
 
@@ -145,9 +167,12 @@ void player::handleEvents(SDL_Event const &event) {
 				
 		}
 
-		if (state[SDL_SCANCODE_SPACE]) {
+		if (state[SDL_SCANCODE_SPACE] && event.key.repeat == 0) {
 
-			//instantiate bullet, shoot
+			Bullet* toShoot = new Bullet();
+			toShoot->get_pos(p_pos.x, p_pos.y);
+			bullets.push_back(toShoot);
+			
 
 		}
 		

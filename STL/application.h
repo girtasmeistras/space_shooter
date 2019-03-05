@@ -2,7 +2,9 @@
 
 #include "SDL.h"
 #include "player.h"
+#include "bullet.h"
 #include <string>
+#include <list>
 #include "helpers.h"
 
 #define SCREEN_WIDTH 640
@@ -10,12 +12,12 @@
 #define SCREEN_FPS 60
 
 
-class application {
+class Application {
 
 public:
 
-	application();
-	~application();
+	Application();
+	~Application();
 
 	void draw();
 	void loop();
@@ -28,8 +30,10 @@ private:
 	SDL_Window*  window;
 	SDL_Renderer* window_renderer;
 	SDL_Rect window_rect;
-	SDL_Event   windowEvent;
+	SDL_Event event;
 	img background_texture;
+	img bullet_texture;
+
 
 
 };

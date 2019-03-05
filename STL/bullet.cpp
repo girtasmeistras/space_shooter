@@ -1,8 +1,7 @@
 #include "bullet.h"
 #include "helpers.h"
-projectile::projectile() {
+Bullet::Bullet() {
 
-	b_txt = nullptr;
 
 	b_pos.x = 0;
 	b_pos.y = 0;
@@ -14,12 +13,12 @@ projectile::projectile() {
 
 }
 
-projectile::~projectile() {
+Bullet::~Bullet() {
 
-	SDL_DestroyTexture(b_txt);
+	
 }
 
-void projectile::update() {
+void Bullet::update() {
 
 	b_pos.y -= 15;
 
@@ -28,10 +27,9 @@ void projectile::update() {
 
 
 
+void Bullet::get_pos(int x, int y) {
 
-void projectile::get_pos(int x, int y) {
-
-	b_pos.x = x;
+	b_pos.x = x + b_pos.w;
 	b_pos.y = y;
 
 }

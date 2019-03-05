@@ -1,8 +1,8 @@
-#include "application.h"
+#include "Application.h"
 #include <iostream>
 
 
-application::application()
+Application::Application()
 {
 	//Initialize SDL
 	assert(SDL_Init(SDL_INIT_VIDEO) > -1, SDL_GetError());
@@ -17,6 +17,7 @@ application::application()
 	
 
 	background_texture.load_texture("background.bmp", window_renderer);
+	bullet_texture.load_texture("bullet.bmp", window_renderer);
 	window_rect = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 
 	player.get_texture(window_renderer);
@@ -24,7 +25,7 @@ application::application()
 	
 }
 
-application::~application()
+Application::~Application()
 {
 	SDL_DestroyRenderer(window_renderer);
 	SDL_DestroyWindow(window);
@@ -32,7 +33,7 @@ application::~application()
 }
 
 
-void application::loop()
+void Application::loop()
 {
 
 	
@@ -41,15 +42,16 @@ void application::loop()
 	bool keep_window_open = true;
 	while (keep_window_open)
 	{
-		while (SDL_PollEvent(&windowEvent) > 0)
+		while (SDL_PollEvent(&event) > 0)
 		{
-			player.handleEvents(windowEvent);
+			player.handleEvents(event);
 
-			switch (windowEvent.type)
+			switch (event.type)
 			{
 			case SDL_QUIT:
 				keep_window_open = false;
 				break;
+
 			}
 			
 		}
@@ -60,20 +62,20 @@ void application::loop()
 	}
 }
 
-void application::update()
+void Application::update()
 {
 	player.update();
 	
 
 }
 
-void application::draw()
+void Application::draw()
 {
 	SDL_RenderClear(window_renderer);
 
 	background_texture.draw(window_renderer, &window_rect, nullptr);
 
-	player.draw(window_renderer, &window_rect);//fix this
+	player.draw(window_renderer, &window_rect, &bullet_texture);
 
 
 	SDL_RenderPresent(window_renderer);
