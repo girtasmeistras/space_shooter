@@ -1,0 +1,199 @@
+# depslib dependency file v1.0
+1552903603 source:/home/deividas/Downloads/STL/bullet.cpp
+	"bullet.h"
+	<iostream>
+
+1552848263 /home/deividas/Downloads/STL/bullet.h
+	"SDL2/SDL.h"
+	<list>
+	<iterator>
+	"helpers.h"
+	"entity.h"
+
+1552900558 /home/deividas/Downloads/STL/helpers.h
+	"SDL2/SDL.h"
+	<SDL2/SDL_image.h>
+
+1552900673 source:/home/deividas/Downloads/STL/helpers.cpp
+	<iostream>
+	<string>
+
+1552598549 source:/home/deividas/Downloads/STL/main.cpp
+	"application.h"
+
+1552900406 /home/deividas/Downloads/STL/application.h
+	"SDL2/SDL.h"
+	"player.h"
+	"bullet.h"
+	"enemy.h"
+	"entity.h"
+	<string>
+	"helpers.h"
+
+1552843551 /home/deividas/Downloads/STL/player.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+
+1552844058 source:/home/deividas/Downloads/STL/player.cpp
+	"player.h"
+	<iostream>
+
+1552845147 /home/deividas/Downloads/STL/enemy.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+
+1552901580 source:/home/deividas/Downloads/STL/application.cpp
+	"application.h"
+	<iostream>
+
+1552897177 source:/home/deividas/Downloads/STL/enemy.cpp
+	"enemy.h"
+
+1552848775 /home/deividas/Downloads/STL/entity.h
+	"helpers.h"
+	"SDL2/SDL.h"
+	<vector>
+
+1552903603 source:/home/deividas/Downloads/STL/entity.cpp
+	<iostream>
+	"entity.h"
+
+1552901580 source:/home/deividas/Desktop/STL backup ( if i fuck up)/application.cpp
+	"application.h"
+	<iostream>
+
+1552900406 /home/deividas/Desktop/STL backup ( if i fuck up)/application.h
+	"SDL2/SDL.h"
+	"player.h"
+	"bullet.h"
+	"enemy.h"
+	"entity.h"
+	<string>
+	"helpers.h"
+
+1552843551 /home/deividas/Desktop/STL backup ( if i fuck up)/player.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+
+1553170854 /home/deividas/Desktop/STL backup ( if i fuck up)/helpers.h
+	"SDL2/SDL.h"
+	<SDL2/SDL_image.h>
+	<map>
+
+1552848775 /home/deividas/Desktop/STL backup ( if i fuck up)/entity.h
+	"helpers.h"
+	"SDL2/SDL.h"
+	<vector>
+
+1552848263 /home/deividas/Desktop/STL backup ( if i fuck up)/bullet.h
+	"SDL2/SDL.h"
+	<list>
+	<iterator>
+	"helpers.h"
+	"entity.h"
+
+1553791529 /home/deividas/Desktop/STL backup ( if i fuck up)/enemy.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+	<list>
+
+1553791675 source:/home/deividas/Desktop/STL backup ( if i fuck up)/bullet.cpp
+	"bullet.h"
+	<iostream>
+
+1552897177 source:/home/deividas/Desktop/STL backup ( if i fuck up)/enemy.cpp
+	"enemy.h"
+
+1552903603 source:/home/deividas/Desktop/STL backup ( if i fuck up)/entity.cpp
+	<iostream>
+	"entity.h"
+
+1552598549 source:/home/deividas/Desktop/STL backup ( if i fuck up)/main.cpp
+	"application.h"
+
+1552844058 source:/home/deividas/Desktop/STL backup ( if i fuck up)/player.cpp
+	"player.h"
+	<iostream>
+
+1553113819 source:/home/deividas/Desktop/STL backup ( if i fuck up)/helpers.cpp
+	<iostream>
+	<string>
+
+1553859957 source:/home/deividas/STL backup ( if i fuck up) 2/enemy.cpp
+	"enemy.h"
+	<iostream>
+	"stdlib.h"
+
+1553855721 /home/deividas/STL backup ( if i fuck up) 2/enemy.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+	<list>
+
+1553857803 /home/deividas/STL backup ( if i fuck up) 2/helpers.h
+	"SDL2/SDL.h"
+	<SDL2/SDL_image.h>
+	"SDL2/SDL_ttf.h"
+	<map>
+
+1553858449 /home/deividas/STL backup ( if i fuck up) 2/entity.h
+	"helpers.h"
+	"SDL2/SDL.h"
+	<vector>
+
+1553808336 /home/deividas/STL backup ( if i fuck up) 2/bullet.h
+	"SDL2/SDL.h"
+	<list>
+	<iterator>
+	"helpers.h"
+	"entity.h"
+
+1553858409 source:/home/deividas/STL backup ( if i fuck up) 2/entity.cpp
+	<iostream>
+	"entity.h"
+
+1553852688 source:/home/deividas/STL backup ( if i fuck up) 2/helpers.cpp
+	<iostream>
+	<string>
+
+1553844602 source:/home/deividas/STL backup ( if i fuck up) 2/main.cpp
+	"application.h"
+
+1553859958 /home/deividas/STL backup ( if i fuck up) 2/application.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_ttf.h"
+	"player.h"
+	"bullet.h"
+	"enemy.h"
+	"entity.h"
+	<string>
+	"helpers.h"
+
+1553852060 /home/deividas/STL backup ( if i fuck up) 2/player.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+
+1553852796 source:/home/deividas/STL backup ( if i fuck up) 2/player.cpp
+	"player.h"
+	<iostream>
+
+1553847672 source:/home/deividas/STL backup ( if i fuck up) 2/bullet.cpp
+	"bullet.h"
+	<iostream>
+
+1553859969 source:/home/deividas/STL backup ( if i fuck up) 2/application.cpp
+	"application.h"
+	<iostream>
+	<string.h>
+
