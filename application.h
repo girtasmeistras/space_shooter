@@ -22,7 +22,7 @@ public:
 	void draw();
 	void loop();
 	void update();
-
+    void game_over();
 
 private:
 
@@ -42,6 +42,7 @@ private:
     int offset;
     int score;
     int new_score;
+    int health;
 };
 
 

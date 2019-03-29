@@ -20,6 +20,10 @@ int Player::get_health(){
     return health;
 }
 
+void Player::restart(){
+    health = 100;
+}
+
 void Player::update()
 {
     Entity::update();

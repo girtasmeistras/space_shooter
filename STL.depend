@@ -165,10 +165,10 @@
 	<iostream>
 	<string>
 
-1553844602 source:/home/deividas/STL backup ( if i fuck up) 2/main.cpp
+1553872389 source:/home/deividas/STL backup ( if i fuck up) 2/main.cpp
 	"application.h"
 
-1553859958 /home/deividas/STL backup ( if i fuck up) 2/application.h
+1553872389 /home/deividas/STL backup ( if i fuck up) 2/application.h
 	"SDL2/SDL.h"
 	"SDL2/SDL_ttf.h"
 	"player.h"
@@ -178,13 +178,13 @@
 	<string>
 	"helpers.h"
 
-1553852060 /home/deividas/STL backup ( if i fuck up) 2/player.h
+1553872779 /home/deividas/STL backup ( if i fuck up) 2/player.h
 	"SDL2/SDL.h"
 	"helpers.h"
 	"entity.h"
 	"bullet.h"
 
-1553852796 source:/home/deividas/STL backup ( if i fuck up) 2/player.cpp
+1553872778 source:/home/deividas/STL backup ( if i fuck up) 2/player.cpp
 	"player.h"
 	<iostream>
 
@@ -192,7 +192,7 @@
 	"bullet.h"
 	<iostream>
 
-1553859969 source:/home/deividas/STL backup ( if i fuck up) 2/application.cpp
+1553873846 source:/home/deividas/STL backup ( if i fuck up) 2/application.cpp
 	"application.h"
 	<iostream>
 	<string.h>

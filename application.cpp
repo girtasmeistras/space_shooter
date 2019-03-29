@@ -42,10 +42,11 @@ Application::Application()
 
 }
 
+
 Application::~Application()
 {
 
-    for(int i = 0;i < Entity::entity_list.size();i++) {
+    for(unsigned int i = 0;i < Entity::entity_list.size();i++) {
         if(Entity::entity_list[i] == nullptr) continue;
             Entity::entity_list[i]->clean_up();
     }
@@ -95,6 +96,53 @@ int Application::start()
 	return 1;
 }
 
+void Application::game_over(){
+
+    player.restart();
+    bool keep_window_open = true;
+    bool exit = false;
+	SDL_Rect message_rect;
+	SDL_Texture* start_message = get_font_texture("GAME OVER", 24, &message_rect, window_renderer);
+    message_rect.x = (SCREEN_WIDTH - message_rect.w) / 2;
+    message_rect.y = (SCREEN_HEIGHT - message_rect.h) / 2;
+
+	while (keep_window_open)
+	{
+
+    offset++;
+    if( offset > SCREEN_HEIGHT )
+    {
+        offset = 0;
+    }
+    SDL_RenderClear(window_renderer);
+    background_texture.clipped_render(0, offset, 0, window_renderer);
+    background_texture.clipped_render(0, offset - SCREEN_HEIGHT, 0, window_renderer);
+    SDL_RenderCopy(window_renderer, start_message, NULL, &message_rect);
+    SDL_RenderPresent(window_renderer);
+		while (SDL_PollEvent(&event) > 0)
+		{
+			switch (event.type)
+			{
+			case SDL_QUIT:
+				keep_window_open = false;
+				exit = true;
+				break;
+            case SDL_KEYDOWN:
+
+            switch( event.key.keysym.sym )
+                {
+                case SDLK_RETURN:
+                keep_window_open = false;
+				break;
+                }
+			}
+		}
+	}
+	SDL_DestroyTexture(start_message);
+	if(exit == false && start() == 1){
+        loop();
+	}
+}
 
 void Application::loop()
 {
@@ -102,11 +150,9 @@ void Application::loop()
 	while (keep_window_open)
 	{
 	    SDL_Rect p_pos_start = player.get_pos();
-
 		while (SDL_PollEvent(&event) > 0)
 		{
 			player.handle_events(event);
-
 			switch (event.type)
 			{
 			case SDL_QUIT:
@@ -114,14 +160,20 @@ void Application::loop()
 				break;
 			}
 		}
-
 		update();
 		draw();
 		SDL_Rect p_pos_end = player.get_pos();
         if(p_pos_end.y < p_pos_start.y){
             offset += p_pos_start.y - p_pos_end.y;
         }
+
+        if(health <= 0){
+            break;
+        }
 	}
+
+    game_over();
+
 }
 
 
@@ -139,7 +191,7 @@ void Application::update()
 
 	enemies.update(player.get_pos());
 
-    for(int i = 0;i < Entity::entity_list.size();i++) {
+    for(unsigned int i = 0;i < Entity::entity_list.size();i++) {
         if(Entity::entity_list[i]->is_alive() == false){
 
             if(Entity::entity_list[i]->get_flag() == 3 && Entity::entity_list[i]->was_already_probed() <= 1){
@@ -154,7 +206,7 @@ void Application::update()
         }
     }
 
-    for(int i = 0; i < Entity_Collision::entity_collision_list.size(); i++) {
+    for(unsigned int i = 0; i < Entity_Collision::entity_collision_list.size(); i++) {
         Entity* a = Entity_Collision::entity_collision_list[i].first_entity;
         Entity* b = Entity_Collision::entity_collision_list[i].second_entity;
 
@@ -181,9 +233,8 @@ void Application::draw()
         score_texture = get_font_texture( (score_str + score_count_str).c_str(), SCORE_FONT_SIZE, &score_rect, window_renderer);
     }
 
-    int health = player.get_health() / 25;
-    SDL_Rect health_rect_temp = health_rect;
-
+    health = player.get_health() / 25;
+    SDL_Rect health_rect_temp[4];
 	SDL_RenderClear(window_renderer);
 
 	//background_texture.draw(window_renderer, &window_rect, nullptr);
@@ -192,8 +243,11 @@ void Application::draw()
     SDL_RenderCopy(window_renderer, score_texture, NULL, &score_rect);
 
     for(int i = 0; i < health; i++){
-        health_rect_temp.x += health_rect.x;
-        health_texture.draw(window_renderer, &window_rect, &health_rect_temp);
+
+        health_rect_temp[i] = health_rect;
+        health_rect_temp[i].x += i * health_rect.w;
+
+        health_texture.draw(window_renderer, &window_rect, &health_rect_temp[i]);
     }
 
 	for(unsigned int i = 0;i < Entity::entity_list.size();i++) {

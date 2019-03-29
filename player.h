@@ -17,7 +17,7 @@ public:
     void draw(SDL_Renderer* w_ren, SDL_Rect* d_rect);
     void load_bullets(const char* path, SDL_Renderer* w_ren);
     int get_health();
-
+    void restart();
 private:
 	Direction pp_dir;//primary Player direction
 	Direction sp_dir;//secondary Player direction
