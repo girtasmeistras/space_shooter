@@ -27,7 +27,9 @@ Enemy::Enemy(const SDL_Rect & player_pos, const Image & enemy_texture, const Ima
     }
 }
 
-Enemy::~Enemy() {}
+Enemy::~Enemy() {
+    kill_bullets();
+}
 
 void Enemy::load_bullets(const Image & bullet_texture){
 
@@ -70,12 +72,6 @@ void Enemy::kill_bullets() {
     e_bullets.kill();
 }
 
-void Enemy::draw(SDL_Renderer* w_ren, SDL_Rect* d_rect) {
-
-    entity_texture.draw(w_ren, d_rect, &entity_pos);
-    e_bullets.draw(w_ren, d_rect);
-}
-
 void Enemy::draw_animation(SDL_Renderer* w_ren, SDL_Rect* d_rect){
 
     ++animation_counter;
@@ -99,18 +95,13 @@ void Enemy::on_collision(Entity* entity){
     }
 }
 
-Enemies::~Enemies(){
-    enemy_texture.destroy();
-    enemy_bullet_texture.destroy();
-    enemy_explosion_texture.destroy();
-}
-
-void Enemies::restart(){//TODO
+void Enemies::restart(){
     wave = 1;
     for (auto it = enemies.begin(); it != enemies.end();)
     {
-        (*it)->kill_bullets();
         (*it)->kill();
+        (*it)->kill_bullets();
+        it = enemies.erase(it);
         ++it;
     }
 }
@@ -132,9 +123,9 @@ void Enemies::load_enemies(const char* path, SDL_Renderer* w_ren){
     enemy_texture.load_texture(path, w_ren);
 }
 
-void Enemies::load_animations(const char* path, SDL_Renderer* w_ren){
+void Enemies::load_animations(const Image & texture){
 
-    enemy_explosion_texture.load_texture(path, w_ren);
+    enemy_explosion_texture = texture;
 }
 
 void Enemies::update(const SDL_Rect & p_pos)
@@ -150,7 +141,7 @@ void Enemies::update(const SDL_Rect & p_pos)
         }
         ++wave;
     }
-    if((wave-1)%3 == 0){
+    if(wave%4 == 0){
         pos_changed = true;
     }
     for (auto it = enemies.begin(); it != enemies.end();)

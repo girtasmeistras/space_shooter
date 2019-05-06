@@ -1,16 +1,15 @@
 #include "player.h"
+#include "application.h"
 #include <iostream>
 Player::Player() {
 
-    entity_pos.x = SCREEN_WIDTH/2;
-    entity_pos.y = SCREEN_HEIGHT/2;
     pp_dir = Direction::NONE;
     sp_dir = Direction::NONE;
     flag = Flag::FRIENDLY;
 }
 
 Player::~Player() {
-    Entity::clean_up();
+
 }
 
 void Player::load_bullets(const char* path, SDL_Renderer* w_ren){
@@ -18,20 +17,32 @@ void Player::load_bullets(const char* path, SDL_Renderer* w_ren){
     p_bullets.load(path, w_ren);
 }
 
-int Player::get_health(){
+void Player::load_nuke(const char* path, SDL_Renderer* w_ren){
+
+    p_bullets.load_nuke(path, w_ren);
+
+}
+
+int Player::get_health() const{
     return health / 25;
 }
 
 void Player::restart(){
+
     alive = true;
     health = 100;
+    has_rocket = false;
+    entity_pos.x = SCREEN_WIDTH/2 - entity_pos.w/2;
+    entity_pos.y = SCREEN_HEIGHT/2 + 60;
+    pp_dir = Direction::NONE;
+    sp_dir = Direction::NONE;
+    p_bullets.kill();
 }
 
 void Player::update()
 {
     Entity::update();
     p_bullets.update();
-
 		switch (pp_dir)
 		{
 		case Direction::UP:
@@ -86,14 +97,15 @@ void Player::on_collision(Entity* entity){
     }
 }
 
-void Player::draw(SDL_Renderer* w_ren, SDL_Rect* d_rect) {
-
-    entity_texture.draw(w_ren, d_rect, &entity_pos);
-    p_bullets.draw(w_ren, d_rect);
-}
-
-void Player::power_up() {
-   health += 25;
+void Player::power_up(int type) {
+    if(type == 0){
+        if(health < 100){
+            health += 25;
+        }
+    }
+    if(type == 1){
+        has_rocket = true;
+    }
 }
 
 void Player::draw_animation(SDL_Renderer* w_ren, SDL_Rect* d_rect){
@@ -116,7 +128,7 @@ void Player::draw_animation(SDL_Renderer* w_ren, SDL_Rect* d_rect){
 
 void Player::handle_events(const SDL_Event & event) {
 
-    p_bullets.handle_events(event, entity_pos);
+    p_bullets.handle_events(event, entity_pos, has_rocket);
 	const Uint8* state = SDL_GetKeyboardState(NULL);
 
 	if (event.type == SDL_KEYDOWN) {

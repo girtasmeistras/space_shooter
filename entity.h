@@ -34,15 +34,15 @@ public:
     virtual void update();
     virtual void draw(SDL_Renderer* w_ren, SDL_Rect* d_rect);
     virtual void draw_animation(SDL_Renderer* w_ren, SDL_Rect* d_rect) = 0;
-    virtual void on_collision(Entity* entity) = 0;
-    bool collides(const SDL_Rect & sec_entity_pos);
+    virtual void on_collision(Entity* entity);
+    bool collides(const SDL_Rect & sec_entity_pos) const;
     void check_for_collisions();
     void clean_up();
     void kill();
-    const SDL_Rect & get_pos();
-    bool is_alive();
-    int get_flag();
-    bool is_playing_animation(){ return playing_animation;}
+    const SDL_Rect & get_pos() const;
+    bool is_alive() const;
+    int get_flag() const;
+    bool is_playing_animation() const { return playing_animation;}
     bool already_got_score();
 protected:
     Image entity_texture;

@@ -11,7 +11,7 @@ Application::Application(): score_str("SCORE: ")
 	//Initialize SDL_TTF
     assert( (TTF_Init() > -1), TTF_GetError());
 
-	window = SDL_CreateWindow("SDL2 Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+	window = SDL_CreateWindow("STL: Slower Than Light", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 	assert( (window != 0), SDL_GetError());
 
 	window_renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -19,27 +19,29 @@ Application::Application(): score_str("SCORE: ")
 
 	background_texture.load_texture("gfx/background.png", window_renderer);
 	health_texture.load_texture("gfx/health.png", window_renderer);
-	player.load_bullets("gfx/p_bullet.png", window_renderer);
-	player.load_animation("gfx/explosion.png", window_renderer);
-	enemies.load_bullets("gfx/e_bullet.png", window_renderer);
+	explosion.load_texture("gfx/explosion.png", window_renderer);
 	player.load("gfx/playership.png", window_renderer);
+	player.load_bullets("gfx/p_bullet.png", window_renderer);
+	player.load_animation(explosion);
+	player.load_nuke("gfx/rocket.png", window_renderer);
+	enemies.load_bullets("gfx/e_bullet.png", window_renderer);
 	enemies.load_enemies("gfx/enemy_other.png", window_renderer);
-    enemies.load_animations("gfx/explosion.png", window_renderer);
+    enemies.load_animations(explosion);
     asteroid_texture.load_texture("gfx/asteroid.png", window_renderer);
-    asteroid_explosion.load_texture("gfx/explosion.png", window_renderer);
+    rocket_texture.load_texture("gfx/rocket.png", window_renderer);
 	Entity::entity_list.push_back(&player);
 	window_rect = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 
     offset = 0;
     score = 0;
     score_count_str = std::to_string(score);
-    score_texture = get_font_texture((score_str + score_count_str).c_str(), SCORE_FONT_SIZE, &score_rect, window_renderer);
+    score_texture = Helpers::get_font_texture((score_str + score_count_str).c_str(), SCORE_FONT_SIZE, &score_rect, window_renderer);
     score_rect.x = (SCREEN_WIDTH - score_rect.w) / 2;
     score_rect.y = SCREEN_HEIGHT - score_rect.h;
 
     SDL_QueryTexture(health_texture.get_texture(), 0, 0, &health_rects[0].w, &health_rects[0].h);
-    health_rects[0].x = 0;
-    health_rects[0].y = 0;
+    health_rects[0].x = 5;//offset x,y from corner
+    health_rects[0].y = 5;
     for(int i = 1; i < 4; i++){
         health_rects[i] = health_rects[0];
         health_rects[i].x += i*health_rects[i].w;
@@ -48,7 +50,10 @@ Application::Application(): score_str("SCORE: ")
 
 Application::~Application()
 {
-    Entity::entity_list.clear();
+     for(unsigned int i = 1;i < Entity::entity_list.size();i++) {
+        delete Entity::entity_list[i];
+        Entity::entity_list.erase(Entity::entity_list.begin()+i);
+     }
     SDL_DestroyTexture(score_texture);
 	SDL_DestroyRenderer(window_renderer);
 	SDL_DestroyWindow(window);
@@ -57,10 +62,11 @@ Application::~Application()
 
 int Application::start()
 {
+    player.restart();
     new_score = 0;
 	bool keep_window_open = true;
 	SDL_Rect message_rect;
-	SDL_Texture* start_message = get_font_texture("PRESS ENTER TO START", MESSAGE_FONT_SIZE, &message_rect, window_renderer);
+	SDL_Texture* start_message = Helpers::get_font_texture("PRESS ENTER TO START", MESSAGE_FONT_SIZE, &message_rect, window_renderer);
     message_rect.x = (SCREEN_WIDTH - message_rect.w) / 2;
     message_rect.y = (SCREEN_HEIGHT - message_rect.h) / 2;
 
@@ -91,12 +97,14 @@ int Application::start()
 
 void Application::game_over()
 {
-    player.restart();
     enemies.restart();
+    for(unsigned int i = 0;i < Entity::entity_list.size(); i++) {
+        Entity::entity_list[i]->kill();
+    }
     bool keep_window_open = true;
     bool exit = false;
 	SDL_Rect message_rect;
-	SDL_Texture* end_message = get_font_texture("GAME OVER", MESSAGE_FONT_SIZE, &message_rect, window_renderer);
+	SDL_Texture* end_message = Helpers::get_font_texture("GAME OVER", MESSAGE_FONT_SIZE, &message_rect, window_renderer);
     message_rect.x = (SCREEN_WIDTH - message_rect.w) / 2;
     message_rect.y = (SCREEN_HEIGHT - message_rect.h) / 2;
 
@@ -120,7 +128,7 @@ void Application::game_over()
 	fs.close();
 
     SDL_Rect score_rect;
-	SDL_Texture* score_message = get_font_texture(("HIGH SCORE: " + std::to_string(stored_score)).c_str(), MESSAGE_FONT_SIZE, &score_rect, window_renderer);
+	SDL_Texture* score_message = Helpers::get_font_texture(("HIGH SCORE: " + std::to_string(stored_score)).c_str(), MESSAGE_FONT_SIZE, &score_rect, window_renderer);
     score_rect.x = (SCREEN_WIDTH - score_rect.w) / 2;
     score_rect.y = message_rect.y + 2*message_rect.h;
 
@@ -178,7 +186,10 @@ void Application::loop()
 		draw();
 		SDL_Rect p_pos_end = player.get_pos();
         if(p_pos_end.y < p_pos_start.y){
-            offset += p_pos_start.y - p_pos_end.y;
+            offset += (p_pos_start.y - p_pos_end.y) + ((p_pos_start.y - p_pos_end.y)/2);
+        }
+        if(p_pos_end.y > p_pos_start.y){
+            offset -= p_pos_start.y - p_pos_end.y;
         }
         if(health <= 0 && !player.is_playing_animation() ){
             break;
@@ -199,12 +210,12 @@ void Application::update()
 
 void Application::check_for_deaths()
 {
-    for(unsigned int i = 0;i < Entity::entity_list.size();i++) {
+    for(unsigned int i = 1;i < Entity::entity_list.size();i++) {
         if(Entity::entity_list[i]->is_alive() == false){
             if(dynamic_cast<Enemy*>(Entity::entity_list[i]) && Entity::entity_list[i]->already_got_score() == false){
                 new_score += 100;
             }
-            if(Entity::entity_list[i]->is_playing_animation() == false && !(dynamic_cast<Player*>(Entity::entity_list[i])) ){
+            if(Entity::entity_list[i]->is_playing_animation() == false){
                 delete Entity::entity_list[i];
                 Entity::entity_list.erase(Entity::entity_list.begin()+i);
             }
@@ -254,14 +265,18 @@ void Application::draw_entities()
 void Application::draw_health()
 {
     health = player.get_health();
-    if(health < 4 && Enemies::wave > 3 && (Enemies::wave - 1) % 3 == 1 && Asteroid::count == 0){
+    if(Enemies::wave % SPAWN_RATE == 0 && Asteroid::count == 0 && !spawned_asteroid){
         Asteroid* asteroid = new Asteroid();
         asteroid->load(asteroid_texture);
-        asteroid->load_animation(asteroid_explosion);
-        asteroid->load_powerup(health_texture);
+        asteroid->load_animation(explosion);
+        asteroid->load_powerups(health_texture, rocket_texture);
         Entity::entity_list.push_back(asteroid);
+        spawned_asteroid = true;
     }
-    for(int i = 0; i < health; i++){
+    if(Enemies::wave % SPAWN_RATE != 0){
+        spawned_asteroid = false;
+    }
+    for(int i = 0; i < health && i < health_rects.size(); i++){
         health_texture.draw(window_renderer, &window_rect, &health_rects[i]);
     }
 }
@@ -282,7 +297,7 @@ void Application::draw_score()
     if(score != new_score){
         score = new_score;
         score_count_str = std::to_string(score);
-        score_texture = get_font_texture((score_str + score_count_str).c_str(), SCORE_FONT_SIZE, &score_rect, window_renderer);
+        score_texture = Helpers::get_font_texture((score_str + score_count_str).c_str(), SCORE_FONT_SIZE, &score_rect, window_renderer);
     }
     SDL_RenderCopy(window_renderer, score_texture, &window_rect, &score_rect);
 }

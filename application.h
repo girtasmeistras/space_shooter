@@ -8,7 +8,18 @@
 #include "entity.h"
 #include "asteroid.h"
 #include <string>
+#include <array>
 #include "helpers.h"
+
+/*TODO
+    TEXTURES WITH REFERENCE COUNTS FOR AUTOMATIC DELETION - not needed, renderer auto deletes at end
+    MORE POWERUPS - done
+    LESS BUGS? probably
+    MORE SPEED - done
+    LESS SPEED - nah
+    BOSS - in the future
+    valgrind - weird
+    */
 
 class Application {
 
@@ -26,7 +37,6 @@ public:
     void draw_health();
     void check_for_deaths();
     void check_for_collisions();
-
 private:
 	Player player;
 	Enemies enemies;
@@ -37,7 +47,8 @@ private:
 	Image background_texture;
 	Image health_texture;
 	Image asteroid_texture;
-	Image asteroid_explosion;
+	Image explosion;
+	Image rocket_texture;
 	SDL_Texture* score_texture;
 	SDL_Rect score_rect;
 	std::array<SDL_Rect, 4> health_rects;
@@ -48,10 +59,12 @@ private:
     int score;
     int new_score;
     int health;
+    bool spawned_asteroid;
 //const values
     const int SCREEN_FPS = 60;
     const int SCORE_FONT_SIZE = 14;
     const int MESSAGE_FONT_SIZE = 24;
+    const int SPAWN_RATE = 3;
 };
 
 

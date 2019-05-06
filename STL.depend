@@ -267,53 +267,52 @@
 	"player.h"
 	<iostream>
 
-1556799593 source:/home/deividas/STL3/bullet.cpp
+1557062942 source:/home/deividas/STL3/bullet.cpp
 	"bullet.h"
 	<iostream>
 	"stdlib.h"
 
-1556799301 /home/deividas/STL3/bullet.h
+1557065155 /home/deividas/STL3/bullet.h
 	"SDL2/SDL.h"
 	<list>
 	<iterator>
 	"helpers.h"
 	"entity.h"
 
-1554798996 /home/deividas/STL3/helpers.h
+1556966693 /home/deividas/STL3/helpers.h
 	"SDL2/SDL.h"
 	<SDL2/SDL_image.h>
 	"SDL2/SDL_ttf.h"
-	<map>
 
-1556802413 /home/deividas/STL3/entity.h
+1557063517 /home/deividas/STL3/entity.h
 	"helpers.h"
 	"SDL2/SDL.h"
 	<vector>
 
-1556803668 source:/home/deividas/STL3/enemy.cpp
+1557157313 source:/home/deividas/STL3/enemy.cpp
 	"enemy.h"
 	<iostream>
 	"stdlib.h"
 
-1556802932 /home/deividas/STL3/enemy.h
+1557156258 /home/deividas/STL3/enemy.h
 	"SDL2/SDL.h"
 	"helpers.h"
 	"entity.h"
 	"bullet.h"
 	<list>
 
-1556807820 source:/home/deividas/STL3/entity.cpp
+1557063530 source:/home/deividas/STL3/entity.cpp
 	<iostream>
 	"entity.h"
 
-1553852688 source:/home/deividas/STL3/helpers.cpp
+1556965975 source:/home/deividas/STL3/helpers.cpp
 	<iostream>
 	<string>
 
 1553872389 source:/home/deividas/STL3/main.cpp
 	"application.h"
 
-1556804644 /home/deividas/STL3/application.h
+1557156426 /home/deividas/STL3/application.h
 	"SDL2/SDL.h"
 	"SDL2/SDL_ttf.h"
 	"player.h"
@@ -322,30 +321,32 @@
 	"entity.h"
 	"asteroid.h"
 	<string>
+	<array>
 	"helpers.h"
 
-1556805974 /home/deividas/STL3/player.h
+1557065107 /home/deividas/STL3/player.h
 	"SDL2/SDL.h"
 	"helpers.h"
 	"entity.h"
 	"bullet.h"
 
-1556807346 source:/home/deividas/STL3/player.cpp
+1557065102 source:/home/deividas/STL3/player.cpp
 	"player.h"
+	"application.h"
 	<iostream>
 
-1556807756 source:/home/deividas/STL3/application.cpp
+1557156645 source:/home/deividas/STL3/application.cpp
 	"application.h"
 	<iostream>
 	<string>
 	<fstream>
 
-1556807468 source:/home/deividas/STL3/asteroid.cpp
+1557155024 source:/home/deividas/STL3/asteroid.cpp
 	"asteroid.h"
 	"player.h"
 	"stdlib.h"
 
-1556807807 /home/deividas/STL3/asteroid.h
+1557157549 /home/deividas/STL3/asteroid.h
 	"SDL2/SDL.h"
 	<list>
 	<iterator>

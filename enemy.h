@@ -13,7 +13,6 @@ public:
 	~Enemy();
 	void update(const SDL_Rect & player_pos, bool changed_pos);
 	void load_bullets(const Image & bullet_texture);
-	void draw(SDL_Renderer* w_ren, SDL_Rect* d_rect);
 	void draw_animation(SDL_Renderer* w_ren, SDL_Rect* d_rect);
 	void on_collision(Entity* entity);
 	void kill_bullets();
@@ -25,11 +24,11 @@ private:
 
 class Enemies{
 public:
-    Enemies(){}
-    ~Enemies();
+    Enemies() = default;
+    ~Enemies() = default;
     void load_bullets(const char* path, SDL_Renderer* w_ren);
     void load_enemies(const char* path, SDL_Renderer* w_ren);
-    void load_animations(const char* path, SDL_Renderer* w_ren);
+    void load_animations(const Image & texture);
     void create_new_enemy(const SDL_Rect & player_pos);
     void update(const SDL_Rect & p_pos);
     void restart();

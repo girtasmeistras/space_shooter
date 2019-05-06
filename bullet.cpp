@@ -4,29 +4,24 @@
 
 Bullet::Bullet(): Entity() {}
 
-Bullet::Bullet(int x, int y, Direction dir) {
+Bullet::Bullet(int x, int y, Direction dir, const Image & texture) {
 
     alive = true;
     b_direction = dir;
-    entity_pos.w = BULLET_WIDTH;
-    entity_pos.h = BULLET_HEIGHT;
-    entity_pos.x = x + entity_pos.w;
-    entity_pos.y = y + entity_pos.h;
-
+    Entity::load(texture);
+    entity_pos.x = x;
     if(b_direction == Direction::UP){
-        entity_pos.y = y - 15;
-        entity_pos.x += 3;//used so bullet shoots from center
+        entity_pos.y = y - entity_pos.h;
+        entity_pos.x += 22/2 - entity_pos.w/2;//centers bullet for player
         flag = Flag::FRIENDLY;
     }
     if(b_direction == Direction::DOWN){
-        entity_pos.y = y + 30;
-        entity_pos.x += entity_pos.w + 5;//enemy is twice as large
+        entity_pos.y = y + entity_pos.h;
+        entity_pos.x += 30/2 - entity_pos.w/2;//centers bullet for enemy
         flag = Flag::HOSTILE;
     }
 
 }
-
-Bullet::~Bullet(){}
 
 void Bullet::update() {
 
@@ -46,16 +41,17 @@ void Bullet::update() {
         entity_pos.y += ENEMY_BULLET_SPEED;
 	}
 
-
-}
-
-void Bullet::draw_animation(SDL_Renderer* w_ren, SDL_Rect* d_rect) {
-
 }
 
 void Bullets::load(const char* path, SDL_Renderer* w_ren){
 
     bullet_texture.load_texture(path, w_ren);
+
+}
+
+void Player_Bullets::load_nuke(const char* path, SDL_Renderer* w_ren){
+
+    nuke.load_texture(path, w_ren);
 
 }
 
@@ -77,43 +73,8 @@ void Bullets::update(){
     }
 }
 
-void Bullets::draw(SDL_Renderer* w_ren, SDL_Rect* d_rect){
 
-    for (auto it = bullets.begin(); it != bullets.end(); ++it)
-	{
-	    SDL_Rect temp = (*it)->get_pos();
-		bullet_texture.draw(w_ren, d_rect, &temp);
-	}
-}
-
-Player_Bullets::~Player_Bullets(){
-    bullet_texture.destroy();
-}
-
-void Player_Bullets::handle_events(const SDL_Event & event, const SDL_Rect & p_pos){
-
-    const Uint8* state = SDL_GetKeyboardState(NULL);
-
-    if (event.type == SDL_KEYDOWN) {
-        if (state[SDL_SCANCODE_SPACE] && event.key.repeat == 0) {
-            Bullet* to_shoot = new Bullet(p_pos.x, p_pos.y, Direction::UP);
-            bullets.push_back(to_shoot);
-            Entity::entity_list.push_back(to_shoot);
-
-        }
-
-    }
-}
-
-void Enemy_Bullets::shoot(const SDL_Rect & e_pos){
-
-    Bullet* to_shoot = new Bullet(e_pos.x, e_pos.y + e_pos.h, Direction::DOWN);
-    bullets.push_back(to_shoot);
-    Entity::entity_list.push_back(to_shoot);
-
-}
-
-void Enemy_Bullets::kill(){
+void Bullets::kill(){
 
     for (auto it = bullets.begin(); it != bullets.end();)
     {
@@ -122,3 +83,33 @@ void Enemy_Bullets::kill(){
         ++it;
     }
 }
+
+void Player_Bullets::handle_events(const SDL_Event & event, const SDL_Rect & p_pos, bool & has_rocket){
+
+    const Uint8* state = SDL_GetKeyboardState(NULL);
+
+    if (event.type == SDL_KEYDOWN) {
+        if (state[SDL_SCANCODE_SPACE] && event.key.repeat == 0) {
+            Bullet* to_shoot = new Bullet(p_pos.x, p_pos.y, Direction::UP, bullet_texture);
+            bullets.push_back(to_shoot);
+            Entity::entity_list.push_back(to_shoot);
+
+        }
+        if (state[SDL_SCANCODE_RETURN] && has_rocket && event.key.repeat == 0)
+		{
+            Rocket* to_shoot = new Rocket(p_pos.x, p_pos.y, Direction::UP, nuke);
+            bullets.push_back(to_shoot);
+            Entity::entity_list.push_back(to_shoot);
+			has_rocket = false;
+		}
+    }
+}
+
+void Enemy_Bullets::shoot(const SDL_Rect & e_pos){
+
+    Bullet* to_shoot = new Bullet(e_pos.x, e_pos.y + e_pos.h, Direction::DOWN, bullet_texture);
+    bullets.push_back(to_shoot);
+    Entity::entity_list.push_back(to_shoot);
+}
+
+

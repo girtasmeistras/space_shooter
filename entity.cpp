@@ -58,19 +58,19 @@ void Entity::update() {
     check_for_collisions();
 }
 
-void Entity::draw(SDL_Renderer* w_ren, SDL_Rect* d_rect) {
+void Entity::draw(SDL_Renderer* w_ren, SDL_Rect* d_rect){
     if(alive){
         entity_texture.draw(w_ren, d_rect, &entity_pos);
     }
 }
 
 
-const SDL_Rect & Entity::get_pos(){
+const SDL_Rect & Entity::get_pos() const{
 
     return entity_pos;
 }
 
-bool Entity::is_alive(){
+bool Entity::is_alive() const{
     return alive;
 }
 
@@ -80,7 +80,7 @@ bool Entity::already_got_score(){
     return to_return;
 }
 
-int Entity::get_flag() {
+int Entity::get_flag() const{
 
     return (int) flag;
 }
@@ -96,13 +96,15 @@ void Entity::kill() {
     alive = false;
 }
 
+
 void Entity::on_collision(Entity* entity){
 
     health -= BULLET_DAMAGE;
 
  }
 
-bool Entity::collides(const SDL_Rect & sec_entity_pos) {
+
+bool Entity::collides(const SDL_Rect & sec_entity_pos) const{
 
     int x_offset1 = entity_pos.w / 10;
     int x_offset2 = sec_entity_pos.w / 10;

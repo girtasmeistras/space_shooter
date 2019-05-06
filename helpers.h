@@ -1,13 +1,12 @@
 #pragma once
 
-#define assert(expression, message) if(expression == false) assert_func(message, __LINE__, __func__, __FILE__)
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+#define assert(expression, message) if(expression == false) Helpers::assert_func(message, __LINE__, __func__, __FILE__)
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
 
 #include "SDL2/SDL.h"
 #include<SDL2/SDL_image.h>
 #include "SDL2/SDL_ttf.h"
-#include<map>
 
 class Image {
 
@@ -23,8 +22,13 @@ private:
 	SDL_Texture* texture;
 };
 
-SDL_Surface* load_bmp(const char* path);
-SDL_Surface* load_png(const char* path);
-void assert_func(char const *message, int line, char const *function, char const *file);
-SDL_Texture* get_font_texture(const char* message, int font_size, SDL_Rect* message_rect, SDL_Renderer* window_renderer);
+class Helpers{
+public:
+    Helpers()=default;
+    ~Helpers()=default;
+    static SDL_Surface* load_bmp(const char* path);
+    static SDL_Surface* load_png(const char* path);
+    static SDL_Texture* get_font_texture(const char* message, int font_size, SDL_Rect* message_rect, SDL_Renderer* window_renderer);
+    static void assert_func(char const *message, int line, char const *function, char const *file);
+};
 

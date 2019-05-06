@@ -27,20 +27,11 @@ void Image::clipped_render( int x, int y, SDL_Rect* clip, SDL_Renderer* w_ren) c
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { x, y, SCREEN_WIDTH, SCREEN_HEIGHT };
 
-    if( clip != nullptr )
-    {
+    if( clip != nullptr ){
         renderQuad.w = clip->w;
         renderQuad.h = clip->h;
     }
-
-    /*
-	//Set clip rendering dimensions
-    renderQuad.w = SCREEN_WIDTH;
-    renderQuad.h = SCREEN_HEIGHT; */
-    SDL_RendererFlip flip = SDL_FLIP_NONE;
-
-	//Render to screen
-	SDL_RenderCopyEx( w_ren, texture, clip, &renderQuad, 0, 0, flip);
+	SDL_RenderCopyEx( w_ren, texture, clip, &renderQuad, 0, 0, SDL_FLIP_NONE);
 }
 
 SDL_Texture* Image::get_texture() const{
@@ -50,34 +41,30 @@ SDL_Texture* Image::get_texture() const{
 
 void Image::load_texture(const char* path, SDL_Renderer* w_ren) {
 
-	SDL_Surface* temp = load_png(path);
-	assert(temp != 0, SDL_GetError());
-
-
+	SDL_Surface* temp = Helpers::load_png(path);
+	assert((temp != 0), SDL_GetError());
 	texture = SDL_CreateTextureFromSurface(w_ren, temp);
-	assert(texture != 0, SDL_GetError());
-
-
+	assert((texture != 0), SDL_GetError());
 	SDL_FreeSurface(temp);
 
 }
 
-SDL_Surface* load_bmp(const char* path)
+SDL_Surface* Helpers::load_bmp(const char* path)
 {
 	SDL_Surface *image_surface = SDL_LoadBMP(path);
-	assert(image_surface != 0, SDL_GetError());
+	assert( (image_surface != 0), SDL_GetError());
 	return image_surface;
 }
 
 
-void assert_func(char const *message, int line, char const *function, char const *file)
+void Helpers::assert_func(char const *message, int line, char const *function, char const *file)
 {
 	std::cout << "ASSERTION FAILED: \n" << "Message: " << message << "\n" << "Line: " << line << "\n" << "Function: " << function << "\n" << "File: " << file << "\n";
 	SDL_Quit();
-	exit(0);
+	exit(1);
 }
 
-SDL_Texture* get_font_texture(const char* message, int font_size, SDL_Rect* message_rect, SDL_Renderer* window_renderer){
+SDL_Texture* Helpers::get_font_texture(const char* message, int font_size, SDL_Rect* message_rect, SDL_Renderer* window_renderer){
 
     TTF_Font* Roboto = TTF_OpenFont("gfx/Roboto-Regular.ttf", font_size); //this opens a font style and sets a size
 	if(!Roboto) {
@@ -92,12 +79,12 @@ SDL_Texture* get_font_texture(const char* message, int font_size, SDL_Rect* mess
     return message_texture;
 }
 
-SDL_Surface* load_png(const char* path) {
+SDL_Surface* Helpers::load_png(const char* path) {
     SDL_Surface* temp = nullptr;
     SDL_Surface* to_return = nullptr;
 
     temp = IMG_Load(path);
-    assert(temp != 0, SDL_GetError());
+    assert( (temp != 0) , SDL_GetError());
     to_return = SDL_ConvertSurfaceFormat(temp, SDL_PIXELFORMAT_RGBA8888, 0);
 
     SDL_FreeSurface(temp);
