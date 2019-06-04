@@ -1,13 +1,12 @@
 CXXFLAGS = -lSDL2 -std=c++0x
 
-LXXFLAGS = -lSDL2 -lSDL2_image
+LXXFLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 
 
-main: main.o bullet.o player.o helpers.o application.o enemy.o entity.o application.h player.h bullet.h enemy.h entity.h helpers.h
+main: main.o bullet.o player.o helpers.o application.o enemy.o entity.o asteroid.o application.h player.h bullet.h enemy.h entity.h helpers.h
 
-	g++ main.o helpers.o bullet.o player.o enemy.o entity.o application.o -o main $(LXXFLAGS)
-
+	g++ main.o helpers.o bullet.o player.o enemy.o entity.o asteroid.o application.o -o main $(LXXFLAGS)
 
 
 main.o: main.cpp application.h 
@@ -16,24 +15,25 @@ main.o: main.cpp application.h
 
 
 
-application.o: application.cpp application.h bullet.h player.h helpers.h
+application.o: application.cpp application.h bullet.h player.h entity.h asteroid.h helpers.h
 
 	g++ application.cpp -c $(CXXFLAGS)
 
-
-
-player.o: player.cpp player.h bullet.h helpers.h
+player.o: player.cpp player.h bullet.h helpers.h entity.h
 
 	g++ player.cpp -c $(CXXFLAGS)
 
-
-enemy.o: enemy.cpp enemy.h bullet.h
+enemy.o: enemy.cpp enemy.h bullet.h entity.h
 
 	g++ enemy.cpp -c $(CXXFLAGS)
 
-bullet.o: bullet.cpp bullet.h
+bullet.o: bullet.cpp bullet.h entity.h
 
 	g++ bullet.cpp -c $(CXXFLAGS)
+
+asteroid.o: asteroid.cpp asteroid.h entity.h
+
+	g++ asteroid.cpp -c $(CXXFLAGS)
 
 entity.o: entity.cpp entity.h
 

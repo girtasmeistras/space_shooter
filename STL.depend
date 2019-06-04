@@ -197,3 +197,256 @@
 	<iostream>
 	<string.h>
 
+1555747133 source:/home/deividas/STL/application.cpp
+	"application.h"
+	<iostream>
+	<string.h>
+
+1555745979 /home/deividas/STL/application.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_ttf.h"
+	"player.h"
+	"bullet.h"
+	"enemy.h"
+	"entity.h"
+	<string>
+	"helpers.h"
+
+1554802802 /home/deividas/STL/player.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+
+1554798996 /home/deividas/STL/helpers.h
+	"SDL2/SDL.h"
+	<SDL2/SDL_image.h>
+	"SDL2/SDL_ttf.h"
+	<map>
+
+1554803716 /home/deividas/STL/entity.h
+	"helpers.h"
+	"SDL2/SDL.h"
+	<vector>
+
+1554806019 /home/deividas/STL/bullet.h
+	"SDL2/SDL.h"
+	<list>
+	<iterator>
+	"helpers.h"
+	"entity.h"
+
+1555747174 /home/deividas/STL/enemy.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+	<list>
+
+1555745440 source:/home/deividas/STL/bullet.cpp
+	"bullet.h"
+	<iostream>
+
+1555748435 source:/home/deividas/STL/enemy.cpp
+	"enemy.h"
+	<iostream>
+	"stdlib.h"
+
+1554804782 source:/home/deividas/STL/entity.cpp
+	<iostream>
+	"entity.h"
+
+1553852688 source:/home/deividas/STL/helpers.cpp
+	<iostream>
+	<string>
+
+1553872389 source:/home/deividas/STL/main.cpp
+	"application.h"
+
+1554803096 source:/home/deividas/STL/player.cpp
+	"player.h"
+	<iostream>
+
+1557224043 source:/home/deividas/STL3/bullet.cpp
+	"bullet.h"
+	<iostream>
+	"stdlib.h"
+
+1557222218 /home/deividas/STL3/bullet.h
+	"SDL2/SDL.h"
+	<list>
+	<iterator>
+	"helpers.h"
+	"entity.h"
+
+1556966693 /home/deividas/STL3/helpers.h
+	"SDL2/SDL.h"
+	<SDL2/SDL_image.h>
+	"SDL2/SDL_ttf.h"
+
+1557223612 /home/deividas/STL3/entity.h
+	"helpers.h"
+	"SDL2/SDL.h"
+	<vector>
+
+1557157313 source:/home/deividas/STL3/enemy.cpp
+	"enemy.h"
+	<iostream>
+	"stdlib.h"
+
+1557223289 /home/deividas/STL3/enemy.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+	<list>
+
+1557222897 source:/home/deividas/STL3/entity.cpp
+	<iostream>
+	"entity.h"
+
+1556965975 source:/home/deividas/STL3/helpers.cpp
+	<iostream>
+	<string>
+
+1553872389 source:/home/deividas/STL3/main.cpp
+	"application.h"
+
+1557223189 /home/deividas/STL3/application.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_ttf.h"
+	"player.h"
+	"bullet.h"
+	"enemy.h"
+	"entity.h"
+	"asteroid.h"
+	<string>
+	<array>
+	"helpers.h"
+
+1557065107 /home/deividas/STL3/player.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+
+1557065102 source:/home/deividas/STL3/player.cpp
+	"player.h"
+	"application.h"
+	<iostream>
+
+1557158323 source:/home/deividas/STL3/application.cpp
+	"application.h"
+	<iostream>
+	<string>
+	<fstream>
+
+1557157545 source:/home/deividas/STL3/asteroid.cpp
+	"asteroid.h"
+	"player.h"
+	"stdlib.h"
+
+1557157549 /home/deividas/STL3/asteroid.h
+	"SDL2/SDL.h"
+	<list>
+	<iterator>
+	"helpers.h"
+	"entity.h"
+
+1559218583 source:/home/deividas/STL4/asteroid.cpp
+	"asteroid.h"
+	"player.h"
+	"stdlib.h"
+
+1559303195 /home/deividas/STL4/asteroid.h
+	"SDL2/SDL.h"
+	<list>
+	<iterator>
+	"helpers.h"
+	"entity.h"
+
+1559317655 /home/deividas/STL4/helpers.h
+	"SDL2/SDL.h"
+	<SDL2/SDL_image.h>
+	"SDL2/SDL_ttf.h"
+	<array>
+	<unordered_map>
+	<memory>
+	<sstream>
+
+1559639628 /home/deividas/STL4/entity.h
+	"helpers.h"
+	"SDL2/SDL.h"
+	<vector>
+
+1559639636 /home/deividas/STL4/player.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+
+1559643671 /home/deividas/STL4/bullet.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_mixer.h"
+	<list>
+	<iterator>
+	<algorithm>
+	"helpers.h"
+	"entity.h"
+
+1559643641 source:/home/deividas/STL4/bullet.cpp
+	"bullet.h"
+	<iostream>
+	"stdlib.h"
+
+1559643049 source:/home/deividas/STL4/enemy.cpp
+	"enemy.h"
+	"application.h"
+	<iostream>
+	"stdlib.h"
+
+1559642774 /home/deividas/STL4/enemy.h
+	"SDL2/SDL.h"
+	"helpers.h"
+	"entity.h"
+	"bullet.h"
+	<list>
+
+1559218719 source:/home/deividas/STL4/entity.cpp
+	<iostream>
+	"entity.h"
+
+1559640748 source:/home/deividas/STL4/helpers.cpp
+	<iostream>
+	<string>
+
+1559642471 source:/home/deividas/STL4/main.cpp
+	"application.h"
+	<iostream>
+	<memory>
+
+1559302565 /home/deividas/STL4/application.h
+	"SDL2/SDL.h"
+	"SDL2/SDL_ttf.h"
+	"SDL2/SDL_mixer.h"
+	"player.h"
+	"bullet.h"
+	"enemy.h"
+	"entity.h"
+	"asteroid.h"
+	<string>
+	<array>
+	<algorithm>
+	"helpers.h"
+
+1559639615 source:/home/deividas/STL4/player.cpp
+	"player.h"
+	"application.h"
+	<iostream>
+
+1559302602 source:/home/deividas/STL4/application.cpp
+	"application.h"
+	<iostream>
+	<string>
+	<fstream>
+

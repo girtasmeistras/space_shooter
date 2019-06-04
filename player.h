@@ -3,9 +3,7 @@
 #include "helpers.h"
 #include "entity.h"
 #include "bullet.h"
-#define SPEED 6
-
-
+const float SPEED = 450;
 
 class Player: public Entity{
 
@@ -14,15 +12,20 @@ public:
 	~Player();
 	void update();
 	void handle_events(const SDL_Event & event);
-    void draw(SDL_Renderer* w_ren, SDL_Rect* d_rect);
-    void load_bullets(const char* path, SDL_Renderer* w_ren);
-    int get_health();
+	void on_collision(Entity* entity);
+    void draw_animation(SDL_Renderer* w_ren, SDL_Rect* d_rect);
+    void load_bullets(const Image & texture);
+    void load_nuke(const Image & texture);
+    int get_health() const;
     void restart();
+    void power_up(int type);
+    bool is_player() const {return true;}
 private:
 	Direction pp_dir;//primary Player direction
 	Direction sp_dir;//secondary Player direction
     Player_Bullets p_bullets;
-
-
+    bool has_rocket;
+    deleted_unique_ptr<Mix_Chunk> health_sound;
+    vec2d<float> movement_pos;
 };
 

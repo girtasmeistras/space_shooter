@@ -1,0 +1,1558 @@
+==19335== Memcheck, a memory error detector
+==19335== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==19335== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==19335== Command: ./main
+==19335== Parent PID: 8442
+==19335== 
+==19335== Conditional jump or move depends on uninitialised value(s)
+==19335==    at 0x403466: main (in /home/deividas/STL4/main)
+==19335== 
+==19335== Conditional jump or move depends on uninitialised value(s)
+==19335==    at 0x58CDCAE: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==19335==    by 0x58CDEDC: std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==19335==    by 0x58DA3F9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==19335==    by 0x403476: main (in /home/deividas/STL4/main)
+==19335== 
+==19335== Conditional jump or move depends on uninitialised value(s)
+==19335==    at 0x58CCB1F: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==19335==    by 0x58CDCD9: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==19335==    by 0x58CDEDC: std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==19335==    by 0x58DA3F9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==19335==    by 0x403476: main (in /home/deividas/STL4/main)
+==19335== 
+==19335== Conditional jump or move depends on uninitialised value(s)
+==19335==    at 0x58CDD0C: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==19335==    by 0x58CDEDC: std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==19335==    by 0x58DA3F9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==19335==    by 0x403476: main (in /home/deividas/STL4/main)
+==19335== 
+==19335== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==19335==    at 0x5E5FFE0: __writev_nocancel (syscall-template.S:84)
+==19335==    by 0xAD6CF28: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==19335==    by 0xAD6D31C: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==19335==    by 0xAD6D3A4: xcb_writev (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==19335==    by 0x6DD754D: _XSend (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x6DD7A41: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x6DC260E: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x4EF9AEA: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4EFA8F1: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4EEC148: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4EEBF34: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4E53396: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==  Address 0xe6ff0c3 is 35 bytes inside a block of size 16,384 alloc'd
+==19335==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19335==    by 0x6DC7722: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x4EF8DB4: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4EEBEE0: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4E53396: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4140F4: Application::Application() (in /home/deividas/STL4/main)
+==19335==    by 0x40349E: main (in /home/deividas/STL4/main)
+==19335== 
+==19335== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==19335==    at 0x5E5FFFD: ??? (syscall-template.S:84)
+==19335==    by 0xAD6CF28: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==19335==    by 0xAD6D31C: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==19335==    by 0xAD6D3A4: xcb_writev (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==19335==    by 0x6DD754D: _XSend (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x6DD7A41: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x6DBE586: _XGetWindowAttributes (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x6DBE710: XGetWindowAttributes (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x6E02952: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x6E0335F: _XimSetICDefaults (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x6E033CD: _XimSetICDefaults (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x6DFEC39: _XimLocalCreateIC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==  Address 0xe6ff0c3 is 35 bytes inside a block of size 16,384 alloc'd
+==19335==    at 0x4C2FB55: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19335==    by 0x6DC7722: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==19335==    by 0x4EF8DB4: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4EEBEE0: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4E53396: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4140F4: Application::Application() (in /home/deividas/STL4/main)
+==19335==    by 0x40349E: main (in /home/deividas/STL4/main)
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F609A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F5F4D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd430 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F60A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F5F4D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd434 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F61EC: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F5F4D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd438 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F6028: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F5F4D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd43c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F602E: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F5F4D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd440 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F609A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F5F5A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd444 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F60A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F5F5A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd448 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F61EC: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F5F5A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd44c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F6028: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F5F5A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd450 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F602E: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F5F5A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd454 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F609A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd458 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F60A1: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd45c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F61EC: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd460 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F6028: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd464 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x107F602E: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A76B50: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd468 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A75F4C: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbc9244 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A75F53: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbc9248 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A75F5A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbc924c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A75F61: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbc9250 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A75F68: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbc9254 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A75F73: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbc9240 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A75FA6: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4b4 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A75FAF: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4b8 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76013: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbc9284 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76020: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbc9280 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76023: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbc9288 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7604F: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4bc is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76058: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4c0 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76088: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4c4 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7608E: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4c8 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76095: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4cc is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7609C: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4d0 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A760A3: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4d4 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A760AA: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4d8 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A760B1: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4dc is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A760E5: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4e0 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A760EB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4e4 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A760F2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4e8 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A760F9: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4ec is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76100: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4f0 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76107: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4f4 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7610E: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4f8 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76142: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd4fc is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76148: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd500 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7614F: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd504 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76156: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd508 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7615D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd50c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76164: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd510 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7616B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd514 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7619F: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd518 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A761A5: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd51c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A761AC: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd520 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A761B3: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd524 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A761BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd528 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A761C1: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd52c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A761C8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd530 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A761FC: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd534 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76202: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd538 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76209: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd53c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76210: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd540 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76217: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd544 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7621E: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd548 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76225: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd54c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A762A7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd550 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A762AD: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd558 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A762B3: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd55c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A762B6: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd554 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A762F1: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd560 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A762FC: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd564 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7636F: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd568 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd56c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76378: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd570 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7637F: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd574 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76386: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd578 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76389: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd57c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A763B9: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd580 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A763BF: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd584 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A763C6: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd588 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A763CD: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd58c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A763D4: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd590 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A763DB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd594 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A763E2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd598 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76416: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd59c is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7641C: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd5a0 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76423: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd5a4 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7642A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd5a8 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7645E: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd5ac is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76464: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd5b0 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A7646B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd5b4 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76472: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd5b8 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76479: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd5bc is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A76480: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd5c0 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A764B4: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd5c4 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 4
+==19335==    at 0x10A764BA: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A77242: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A45ACB: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107E3E5D: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813375: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10813A48: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107ED4F8: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==  Address 0x7f0f2bbcd5c8 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== 
+==19335== More than 100 errors detected.  Subsequent errors
+==19335== will still be recorded, but in less detail than before.
+==19335== Invalid write of size 2
+==19335==    at 0x4C32723: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19335==    by 0x107E0774: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107FC948: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107EDC0A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x4E99C05: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4E913B0: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==    by 0x4E915FA: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==  Address 0x7f0f2bbc94a0 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== Invalid write of size 2
+==19335==    at 0x4C32723: memcpy@@GLIBC_2.14 (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19335==    by 0x107EEA54: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107EF401: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A7D48C: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107FC948: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107EDC0A: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105AF5D7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10599C3B: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105ABEF2: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10496B91: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10498D16: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x4E99C05: ??? (in /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0.4.0)
+==19335==  Address 0x7f0f2a806000 is not stack'd, malloc'd or (recently) free'd
+==19335== 
+==19335== 
+==19335== HEAP SUMMARY:
+==19335==     in use at exit: 23,647,409 bytes in 6,033 blocks
+==19335==   total heap usage: 86,730 allocs, 80,697 frees, 115,644,509 bytes allocated
+==19335== 
+==19335== 112 bytes in 1 blocks are definitely lost in loss record 506 of 1,259
+==19335==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19335==    by 0x106DEAEC: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x106DEBCD: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F59F6: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10800BAF: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10801648: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F9BC9: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x104AC173: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105441C7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x1054447C: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10544530: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105601EC: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335== 
+==19335== 112 bytes in 1 blocks are definitely lost in loss record 507 of 1,259
+==19335==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19335==    by 0x106DEAEC: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A41C76: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A110DE: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10A122D0: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10800ACC: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10801648: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x107F9BC9: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x104AC173: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x105441C7: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x1054447C: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335==    by 0x10544530: ??? (in /usr/lib/x86_64-linux-gnu/dri/i965_dri.so)
+==19335== 
+==19335== LEAK SUMMARY:
+==19335==    definitely lost: 224 bytes in 2 blocks
+==19335==    indirectly lost: 0 bytes in 0 blocks
+==19335==      possibly lost: 499,207 bytes in 2,706 blocks
+==19335==    still reachable: 0 bytes in 0 blocks
+==19335==         suppressed: 23,147,978 bytes in 3,325 blocks
+==19335== 
+==19335== For counts of detected and suppressed errors, rerun with: -v
+==19335== Use --track-origins=yes to see where uninitialised values come from
+==19335== ERROR SUMMARY: 88348 errors from 492 contexts (suppressed: 2739175 from 1310)

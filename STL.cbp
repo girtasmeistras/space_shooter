@@ -30,6 +30,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c++11" />
 			<Add option="`sdl-config --cflags`" />
 		</Compiler>
 		<Linker>
@@ -37,9 +38,12 @@
 			<Add option="-lSDL2" />
 			<Add option="-lSDL2_image" />
 			<Add option="-lSDL2_ttf" />
+			<Add option="-lSDL2_mixer" />
 		</Linker>
 		<Unit filename="application.cpp" />
 		<Unit filename="application.h" />
+		<Unit filename="asteroid.cpp" />
+		<Unit filename="asteroid.h" />
 		<Unit filename="bullet.cpp" />
 		<Unit filename="bullet.h" />
 		<Unit filename="cb.bmp" />

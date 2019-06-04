@@ -1,11 +1,18 @@
 #include "application.h"
+#include <iostream>
+#include <memory>
 #undef main
 
 int main() {
-
-	Application app;
-	if(app.start() == 1)
-        app.loop();
-
+	try{
+        std::unique_ptr<Application> app(new Application);
+        if(app->start())
+            app->loop();
+	}catch(const Assertion_Failed_Exception & e){
+	    std::cerr << e.what();
+	}
+	catch(const std::exception & e){
+        std::cerr << e.what();
+	}
 	return 0;
 }
